@@ -14,5 +14,6 @@
 
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url();?>asset/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url('asset/css/main.css');?>" rel="stylesheet">
 
 </head>
