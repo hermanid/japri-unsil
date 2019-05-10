@@ -16,6 +16,7 @@ class Dashboard extends CI_Controller {
         
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
+        $data['sesi'] = "dashboard";
         $this->load->view('template/content', $data);
         
     }

@@ -11,7 +11,14 @@
 
 <!-- Divider -->
 <hr class="sidebar-divider my-0">
-\
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url();?>">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
 <!-- Divider -->
 <hr class="sidebar-divider">
 
@@ -23,7 +30,7 @@
 <li class="nav-item">
   <a class="nav-link" href="<?php echo base_url('crew');?>">
     <i class="fas fa-fw fa-user"></i>
-    <span>CREW</span></a>
+    <span>Crew</span></a>
 </li>
 
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Crew extends CI_Controller {
 
     
 	function __construct(){
@@ -16,6 +16,7 @@ class Dashboard extends CI_Controller {
         
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
+        $data['sesi'] = "crew";
         $this->load->view('template/content', $data);
         
     }
