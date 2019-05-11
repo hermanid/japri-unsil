@@ -11,7 +11,7 @@
               <h6 class="m-0 font-weight-bold text-primary">Data transaksi</h6>
             </div>
             <div class="card-body">
-            <form class="transaksi-form" action="<?php echo base_url('login/aksi_login'); ?>" method="post" >
+            <form class="transaksi-form" action="<?php echo base_url('transaksi/add'); ?>" method="post" >
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama">
                     </div>
@@ -46,9 +46,7 @@
                     </div>
                   </div>
                     </div>
-                    <a class="btn btn-primary btn-user btn-block" href="#" onClick="hitung_harga()">
-                        Hitung Transaksi
-                    </a>
+                    <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                     <hr>
                   </form>
             </div>
@@ -73,14 +71,3 @@
       </div>
     </div>
   </div>
-
-<script>
-    function hitung_harga(){
-        var nama = document.getElementById('nama').value;
-    var cetakhp = document.getElementById('cetakhp').value;
-    var cetaksw = document.getElementById('cetaksw').value;
-    var cetakfw = document.getElementById('cetakfw').value;
-    alert(nama);
-    }
-
-</script>

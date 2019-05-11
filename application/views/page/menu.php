@@ -49,6 +49,11 @@
   
 </li>
 <li class="nav-item">
+  <a class="nav-link" href="<?php echo base_url('harga');?>">
+    <i class="fas fa-fw fa-user"></i>
+    <span>Harga Barang</span></a>
+</li>
+<li class="nav-item">
   <a class="nav-link" href="<?php echo base_url('diskon');?>">
     <i class="fas fa-fw fa-user"></i>
     <span>Diskon</span></a>
