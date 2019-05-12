@@ -13,7 +13,7 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">
+        <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahDiskonModal">
           <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
           </span>
@@ -41,7 +41,10 @@
                         <td>" . $n . "</td>
                         <td>" . $row->nama . "</td>
                         <td>" . $row->potongan . "%</td>
-                        <td><a href='" . base_url('diskon/hapus/') . $row->id_discount . "' class='btn btn-block btn-danger'>Hapus</a></td>
+                        <td>
+                          <a href='" . base_url('diskon/edit/') . $row->id_discount . "' class='badge badge-primary'>Edit</a>
+                          <a href='" . base_url('diskon/hapus/') . $row->id_discount . "' class='badge badge-danger'>Hapus</a>
+                        </td>
                     </tr>";
               $n++;
             }
@@ -53,31 +56,4 @@
     </div>
   </div>
 
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="newMenuModalLabel">Tambah Diskon</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form action="<?= base_url('menu'); ?>" method="post">
-        <div class="modal-body">
-          <div class="form-group">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="potongan" name="potongan" placeholder="Potongan">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Tambah</button>
-        </div>
-      </form>
-    </div>
-  </div>
 </div>

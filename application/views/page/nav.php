@@ -7,14 +7,13 @@
           </button>
 
           <ul class="navbar-nav ml-auto">
-
-
             <a href="<?= base_url('transaksi/tambah'); ?>" class="btn btn-primary btn-icon-split addItem">
               <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
               </span>
               <span class="text">Tambah transaksi</span>
             </a>
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -32,8 +31,6 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div class="dropdown-item">
-                </div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout

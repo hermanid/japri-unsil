@@ -28,7 +28,7 @@
                       echo "
                             <tr>
                                 <td>" . $n . "</td>
-                                <td>" . $row->username . "</td>
+                                <td>" . $row->nama . "</td>
                             </tr>";
                       $n++;
                     }

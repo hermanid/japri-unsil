@@ -12,12 +12,27 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">
-          <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-          </span>
-          <span class="text">Tambah Crew</span>
-        </a>
+        <div class="row">
+          <div class="col-5">
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahCrewModal">
+              <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+              </span>
+              <span class="text">Tambah Crew</span>
+            </a>
+
+            <!-- Search button -->
+            <div class="input-group mb-3">
+              <input id="search-input" type="text" class="form-control" placeholder="Cari crew .." aria-label="Cari crew .." aria-describedby="search-button">
+              <div class="input-group-append">
+                <button class="btn btn-primary" id="search-button">Cari</button>
+              </div>
+            </div>
+            <!-- akhir search button -->
+
+          </div>
+
+        </div>
 
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -57,42 +72,3 @@
 
 </div>
 <!-- /.container-fluid -->
-
-<!-- Modal -->
-<div class="modal fade" id="newMenuModal" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="newMenuModalLabel">Tambah Crew</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form action="<?= base_url('menu'); ?>" method="post">
-        <div class="modal-body">
-          <div class="form-group">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="tempatlhr" name="tempatlhr" placeholder="Tempat Lahir">
-          </div>
-          <div class="form-group">
-            <input type="date" class="form-control" id="tanggallhr" name="tanggallhr" placeholder="Tanggal Lahir">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
-          </div>
-          <div class="form-group">
-            <input type="hidden" class="form-control" id="piutang" name="piutang" value="">
-          </div>
-          <div class="form-group">
-            <input type="hidden" class="form-control" id="bagihasil" name="bagihasil" value="">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Tambah</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>

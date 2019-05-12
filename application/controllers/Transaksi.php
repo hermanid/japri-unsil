@@ -3,14 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Transaksi extends CI_Controller
 {
-
-
-
     function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('status') != "login") {
-            redirect(base_url("login"));
+        if ($this->session->userdata('status') != 'login') {
+            redirect('login');
         }
     }
 
@@ -23,7 +20,6 @@ class Transaksi extends CI_Controller
     }
     public function tambah()
     {
-
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "tambah_transaksi";
@@ -67,6 +63,7 @@ class Transaksi extends CI_Controller
     {
         return ($jbarang *  50) + ($jilid * 1000);
     }
+
     function all()
     {
         $nama = $this->input->post('namapb');
@@ -78,7 +75,7 @@ class Transaksi extends CI_Controller
         $query = $this->db->query('SELECT * FROM `crew` WHERE n ama ="' . $this->input->post('crew') . '"');
         $row = $query->result();
         $idcrew = $row[0]->id_crew;
-        $bonusadmin = $this->bonusadmin($jkertas, $jilid);
+        $bonusadmin = $this->badmin($jkertas, $jilid);
         $bonuscrew = $this->input->post('total') * 0.3;
         $hawal = $this->input->post('hawal');
         $hdiskon = $this->input->post('hdiskon');
@@ -100,10 +97,10 @@ class Transaksi extends CI_Controller
 
 
         //query
-        $this->db->query('INSERT INTO `detil_print`(`id_print`, `nama`, `harga`, `tanggal`) VALUES (NULL,  " ' . $nama . '" , ' . $hdiskon . ',now())');
+        $this->db->query('INSERT INTO `detil_print`(`id_print`, `nama`, `harga`, `tanggal`) VALUES (NULL,  "' . $nama . '" , ' . $hdiskon . ',now())');
         $this->db->query('INSERT INTO `ledger`(`id_ledger`, `keterangan`, `debit`, `saldo`, `tanggal`) VALUES (NULL,"PENDAPATAN PRINT" , ' . $hdiskon . ',   ' . (int)($hdiskon + $saldo) . ',now())');
-        $this->db->query('UPDATE `crew` SET `bagihasil`=    ' . (int)($bagihasil + $bonuscrew) . ' WHERE id_crew = ' . $idcrew);
-        $this->db->query('UPDATE `admin` SET `bonus`=    ' . (int)($bonusadmin + $bonusadmin) . ' WHERE id_admin =   ' . $idadmin);
+        $this->db->query('UPDATE `crew` SET `bagihasil`= ' . (int)($bagihasil + $bonuscrew) . ' WHERE id_crew =' . $idcrew);
+        $this->db->query('UPDATE `admin` SET `bonus`= ' . (int)($bonusadmin + $bonusadmin) . ' WHERE id_admin =' . $idadmin);
 
 
         $query = $this->db->query('SELECT * FROM `ledger`');

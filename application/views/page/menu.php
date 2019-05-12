@@ -69,8 +69,8 @@
   </div>
 
   <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('login/logout'); ?>">
-      <i class="fas fa-fw fa-user"></i>
+    <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+      <i class="fas fa-fw fa-sign-out-alt"></i>
       <span>Logout</span>
     </a>
   </li>

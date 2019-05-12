@@ -6,14 +6,15 @@ class Login extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('status') == 'login' && $this->session->userdata('status') != 'logout') {
-			redirect('dashboard');
-		}
 		$this->load->model('m_login');
 	}
 
 	public function index()
 	{
+		if ($this->session->has_userdata('status')) {
+			redirect('dashboard');
+		}
+
 		$data['title'] = "Masuk | JAPRI";
 		$data['page'] = "login";
 		// load view
@@ -74,8 +75,9 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
-		$this->session->set_userdata(['status' => 'logout']);
-		$this->session->unset_userdata('nama');
+		// $this->session->unset_userdata('status');
+		// $this->session->unset_userdata('nama');
+		$this->session->sess_destroy();
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Logout Berhasil!</div>');
 
