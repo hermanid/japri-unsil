@@ -37,25 +37,25 @@
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url('transaksi'); ?>">
-      <i class="fas fa-fw fa-folder"></i>
+      <i class="fas fa-fw fa-money-check-alt"></i>
       <span>Transaksi</span>
     </a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url('harga'); ?>">
-      <i class="fas fa-fw fa-user"></i>
+      <i class="fas fa-fw fa-dollar-sign"></i>
       <span>Harga Barang</span>
     </a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url('diskon'); ?>">
-      <i class="fas fa-fw fa-user"></i>
+      <i class="fas fa-fw fa-percent"></i>
       <span>Diskon</span>
     </a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url('admin'); ?>">
-      <i class="fas fa-fw fa-user"></i>
+      <i class="fas fa-fw fa-users-cog"></i>
       <span>Admin</span>
     </a>
   </li>
