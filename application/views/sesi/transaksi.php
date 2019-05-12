@@ -8,7 +8,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Data transaksi</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Data Transaksi</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -22,35 +22,25 @@
                       <th>Keterangan</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>No.</th>
-                      <th>Nama Kru</th>
-                      <th>Jumlah Tagihan</th>
-                      <th>Bagi Hasil</th>
-                      <th>Keterangan</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
-                      <?php
-                      $query = $this->db->query("SELECT * FROM `crew`");
-                      $n = 1;                  
-                      setlocale(LC_MONETARY,"de_DE");
-                    
-                      foreach ($query->result() as $row)
-                      {
-                        echo "
-                            <tr>
-                                <td>".$n."</td>
-                                <td>".$row->nama."</td>
-                                <td>Rp. ".number_format($row->piutang)."</td>
-                                <td>Rp. ".number_format($row->bagihasil)."</td>
-                                <td>".$row->keterangan."</td>
-                            </tr>";
-                        $n++;
-                      }
+                    <?php
+                    $query = $this->db->query("SELECT * FROM `crew`");
+                    $n = 1;
+                    setlocale(LC_MONETARY, "de_DE");
 
-                      ?>
+                    foreach ($query->result() as $row) {
+                      echo "
+                            <tr>
+                                <td>" . $n . "</td>
+                                <td>" . $row->nama . "</td>
+                                <td>Rp. " . number_format($row->piutang) . "</td>
+                                <td>Rp. " . number_format($row->bagihasil) . "</td>
+                                <td>" . $row->keterangan . "</td>
+                            </tr>";
+                      $n++;
+                    }
+
+                    ?>
                   </tbody>
                 </table>
               </div>
