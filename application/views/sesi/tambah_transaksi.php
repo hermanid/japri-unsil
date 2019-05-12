@@ -16,34 +16,34 @@
                       <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama">
                     </div>
                     <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="crew" placeholder="Nama Crew" name="crew">
+                  </div>
+                    <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="cetakhp" name="cetakhp" placeholder="Cetak Hitam Putih">
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="cetaksw" name="cetaksw" placeholder="Cetak 50% Warna">
                     </div>
+
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="cetakfw" name="cetakfw" placeholder="Cetak 100% Warna">
                     </div>
-                    <div class="form-group form-inline">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="jilid">
-                        <label class="custom-control-label" for="jilid">Jilid</label>
-                      </div>
                       
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="jilid" name="jilid" placeholder="Jumlah Jilid">
+                    </div>
                     <div class="dropdown mb-4">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Diskon
-                    </button>
-                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                    <select class="btn btn-primary dropdown-toggle" name="diskon" >
+                    
                     <?php
                       $query = $this->db->query("SELECT * FROM `discount`");
                       foreach ($query->result() as $row)
                       {
-                        echo "<a class='dropdown-item' href='#'>".$row->nama." - ".$row->potongan."%</a>";
+                        echo "<option class='dropdown-item' value='".$row->id_discount."'>".$row->nama." - ".$row->potongan."%</option>";
                       }
 
                       ?>
-                    </div>
+                    </select>
                   </div>
                     </div>
                     <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
@@ -71,3 +71,10 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#crew" ).autocomplete({
+              source: "<?php echo site_url('crew/get_autocomplete/?');?>"
+            });
+        });
+    </script>

@@ -5,16 +5,16 @@ class Login extends CI_Controller {
 
     
 	function __construct(){
-		parent::__construct();		
-        if($this->session->userdata('status') == "login"){
-			redirect(base_url("dashboard"));
-        }
+		parent::__construct();
         $this->load->model('m_login');
     }
     
 	public function index()
 	{
-        
+        		
+        if($this->session->has_userdata('status')){
+			redirect(base_url("dashboard"));
+        }
         $data['title'] = "Masuk | JAPRI";
         $data['page'] = "login";
         $this->load->view('template/content', $data);

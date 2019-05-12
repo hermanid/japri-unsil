@@ -5,6 +5,5 @@
 
 
     <?php $this->view('page/'.$page); ?>
-<?php $this->view('template/footer'); ?>
 
 </html>
