@@ -1,9 +1,9 @@
 <!-- Modal Logout -->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+        <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
@@ -99,10 +99,10 @@
       <form action="<?= base_url('harga/tambah'); ?>" method="post">
         <div class="modal-body">
           <div class="form-group">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Barang">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="harga" name="harga" placeholder="Harga">
+            <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
           </div>
         </div>
         <div class="modal-footer">

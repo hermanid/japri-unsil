@@ -56,7 +56,7 @@ class Transaksi extends CI_Controller
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "sukses";
-        $this->load->view('template/co ntent', $data);
+        $this->load->view('template/content', $data);
     }
 
     function badmin($jbarang, $jilid)

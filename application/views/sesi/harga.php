@@ -20,6 +20,11 @@
           </span>
           <span class="text">Tambah Harga</span>
         </a>
+
+        <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+        <?= form_error('harga', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+        <?= $this->session->flashdata('message'); ?>
+
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
@@ -29,33 +34,23 @@
               <th>Aksi</th>
             </tr>
           </thead>
-
           <tbody>
-            <?php
-            $query = $this->db->query("SELECT * FROM `harga`");
-            $n = 1;
-            foreach ($query->result() as $row) {
-              echo "
-                    <tr>
-                        <td>" . $n . "</td>
-                        <td>" . $row->barang . "</td>
-                        <td>Rp. " . $row->harga . "</td>
-                        <td>
-                          <a href='" . base_url('harga/edit/') . $row->id_harga . "' class='badge badge-primary'>Edit</a>
-                          <a href='" . base_url('harga/hapus/') . $row->id_harga . "' class='badge badge-danger'>Hapus</a>
-                        </td>
-                    </tr>";
-              $n++;
-            }
-
-            ?>
+            <?php $n = 1; ?>
+            <?php foreach ($harga as $row) : ?>
+              <tr>
+                <td><?= $n ?></td>
+                <td><?= $row['barang'] ?></td>
+                <td>Rp. <?= $row['harga'] ?></td>
+                <td>
+                  <a href="<?= base_url('harga/edit/') . $row['id_harga'] ?>" class="badge badge-primary">Edit</a>
+                  <a href="<?= base_url('harga/hapus/') . $row['id_harga'] ?>" class="badge badge-danger" onclick="confirm('apakah anda yakin menghapus data ini?')">Hapus</a>
+                </td>
+              </tr>
+              <?php $n++; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-
 </div>
-
-<!-- /.container-fluid -->
-<!-- /.container-fluid -->
