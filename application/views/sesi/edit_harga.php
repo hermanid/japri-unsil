@@ -17,9 +17,11 @@
                         <div class="form-group">
                             <input type="hidden" name="id" id="id" value="<?= $harga_id['id_harga'] ?>">
                             <input type="text" class="form-control form-control-user" id="nama" name="nama" value="<?= $harga_id['barang'] ?>">
+                            <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control form-control-user" id="harga" name="harga" value="<?= $harga_id['harga'] ?>">
+                            <?= form_error('harga', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-user btn-block">Edit</button>

@@ -19,6 +19,11 @@
           </span>
           <span class="text">Tambah Diskon</span>
         </a>
+
+        <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+        <?= form_error('harga', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+        <?= $this->session->flashdata('message'); ?>
+
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
@@ -30,26 +35,19 @@
           </thead>
 
           <tbody>
-            <?php
-            $query = $this->db->query("SELECT * FROM `discount`");
-            $n = 1;
-            setlocale(LC_MONETARY, "de_DE");
-
-            foreach ($query->result() as $row) {
-              echo "
-                    <tr>
-                        <td>" . $n . "</td>
-                        <td>" . $row->nama . "</td>
-                        <td>" . $row->potongan . "%</td>
-                        <td>
-                          <a href='" . base_url('diskon/edit/') . $row->id_discount . "' class='badge badge-primary'>Edit</a>
-                          <a href='" . base_url('diskon/hapus/') . $row->id_discount . "' class='badge badge-danger'>Hapus</a>
-                        </td>
-                    </tr>";
-              $n++;
-            }
-
-            ?>
+            <?php $n = 1; ?>
+            <?php foreach ($diskon as $row) : ?>
+              <tr>
+                <td><?= $n; ?></td>
+                <td><?= $row['nama'] ?></td>
+                <td><?= $row['potongan'] ?>%</td>
+                <td>
+                  <a href="<?= base_url('diskon/edit/') . $row['id_discount']; ?>" class="badge badge-primary">Edit</a>
+                  <a href="<?= base_url('diskon/hapus/') . $row['id_discount']; ?>" class="badge badge-danger btn-delete">Hapus</a>
+                </td>
+              </tr>
+              <?php $n++; ?>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
@@ -57,3 +55,14 @@
   </div>
 
 </div>
+<script>
+  $(document).ready(function() {
+    $('table').on("click", ".btn-delete", function() {
+      if (confirm('Apakah anda yakin menghapus data ini?')) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+  });
+</script>

@@ -43,7 +43,7 @@
                 <td>Rp. <?= $row['harga'] ?></td>
                 <td>
                   <a href="<?= base_url('harga/edit/') . $row['id_harga'] ?>" class="badge badge-primary">Edit</a>
-                  <a href="<?= base_url('harga/hapus/') . $row['id_harga'] ?>" class="badge badge-danger" onclick="confirm('apakah anda yakin menghapus data ini?')">Hapus</a>
+                  <a href="<?= base_url('harga/hapus/') . $row['id_harga'] ?>" class="badge badge-danger btn-delete">Hapus</a>
                 </td>
               </tr>
               <?php $n++; ?>
@@ -54,3 +54,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('table').on("click", ".btn-delete", function() {
+      if (confirm('Apakah anda yakin menghapus data ini?')) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+  });
+</script>

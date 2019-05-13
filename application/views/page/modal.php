@@ -58,34 +58,6 @@
 </div>
 
 
-<!-- Modal Tambah Diskon -->
-<div class="modal fade" id="tambahDiskonModal" tabindex="-1" role="dialog" aria-labelledby="tambahDiskonModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tambahDiskonModalLabel">Tambah Diskon</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form action="<?= base_url('diskon/tambah'); ?>" method="post">
-        <div class="modal-body">
-          <div class="form-group">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="potongan" name="potongan" placeholder="Potongan">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Tambah</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
 <!-- Modal Tambah Harga-->
 <div class="modal fade" id="tambahHargaModal" tabindex="-1" role="dialog" aria-labelledby="tambahHargaModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -103,6 +75,34 @@
           </div>
           <div class="form-group">
             <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Tambah Diskon-->
+<div class="modal fade" id="tambahDiskonModal" tabindex="-1" role="dialog" aria-labelledby="tambahDiskonModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahDiskonModalLabel">Tambah Harga</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?= base_url('diskon/tambah'); ?>" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Diskon">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="potongan" name="potongan" placeholder="Potongan">
           </div>
         </div>
         <div class="modal-footer">

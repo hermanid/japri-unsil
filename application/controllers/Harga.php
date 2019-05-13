@@ -33,6 +33,7 @@ class Harga extends CI_Controller
         $data['page'] = "dashboard";
         $data['sesi'] = "harga";
 
+
         //form validation rules
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('harga', 'Harga', 'required|numeric|trim');

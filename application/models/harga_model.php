@@ -8,6 +8,11 @@ class Harga_model extends CI_Model
         return $this->db->get('harga')->result_array();
     }
 
+    public function getHargaById($id)
+    {
+        return $this->db->get_where('harga', ['id_harga' => $id])->row_array();
+    }
+
     public function addHarga()
     {
         $data = [
@@ -16,11 +21,6 @@ class Harga_model extends CI_Model
         ];
 
         $this->db->insert('harga', $data);
-    }
-
-    public function getHargaById($id)
-    {
-        return $this->db->get_where('harga', ['id_harga' => $id])->row_array();
     }
 
     public function editHarga($id)
