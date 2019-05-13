@@ -42,6 +42,12 @@
     </a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('ledger'); ?>">
+      <i class="fas fa-fw fa-money-check-alt"></i>
+      <span>Ledger</span>
+    </a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="<?= base_url('harga'); ?>">
       <i class="fas fa-fw fa-dollar-sign"></i>
       <span>Harga Barang</span>

@@ -17,6 +17,7 @@
                     <tr>
                       <th>No.</th>
                       <th>Nama Kru</th>
+                      <th>Bonus</th>
                     </tr>
                   </thead>
 
@@ -29,6 +30,7 @@
                             <tr>
                                 <td>" . $n . "</td>
                                 <td>" . $row->nama . "</td>
+                                <th>".$row->bonus."</th>
                             </tr>";
                       $n++;
                     }
