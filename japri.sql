@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2019 at 01:37 PM
+-- Generation Time: May 13, 2019 at 06:09 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `nama`, `pass`, `bonus`) VALUES
-(1, 'admin', 'Herman', '21232f297a57a5a743894a0e4a801fc3', 0);
+(1, 'admin', 'Herman', '21232f297a57a5a743894a0e4a801fc3', 152400);
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE `crew` (
 --
 
 INSERT INTO `crew` (`id_crew`, `nama`, `piutang`, `bagihasil`, `keterangan`) VALUES
-(1, 'Aay ramadhan', 0, 25000, '-'),
+(1, 'Aay ramadhan', 0, 514250, '-'),
 (2, 'Acep Ahmad saroni', 0, 0, '-'),
 (3, 'Agung Wahyu Ginanjar', 274800, 158535, '-'),
 (4, 'Alifah Nursyabani', 0, 2300, '-'),
@@ -168,7 +168,10 @@ INSERT INTO `detil_print` (`id_print`, `nama`, `harga`, `tanggal`) VALUES
 (3, 'Herman', 835200, '2019-05-12 11:56:12'),
 (4, 'Herman', 835200, '2019-05-12 11:56:35'),
 (5, 'Herman', 835200, '2019-05-12 11:56:56'),
-(6, 'Herman', 835200, '2019-05-12 13:36:24');
+(6, 'Herman', 835200, '2019-05-12 13:36:24'),
+(7, 'Herman', 266200, '2019-05-13 22:09:31'),
+(8, 'Herman', 266200, '2019-05-13 22:09:53'),
+(9, 'Herman', 1318000, '2019-05-13 22:40:59');
 
 -- --------------------------------------------------------
 
@@ -235,7 +238,10 @@ INSERT INTO `ledger` (`id_ledger`, `keterangan`, `debit`, `saldo`, `tanggal`) VA
 (2, 'PENDAPATAN PRINT', 835200, 1670400, '2019-05-12 11:56:12'),
 (3, 'PENDAPATAN PRINT', 835200, 2505600, '2019-05-12 11:56:35'),
 (4, 'PENDAPATAN PRINT', 835200, 3340800, '2019-05-12 11:56:56'),
-(5, 'PENDAPATAN PRINT', 835200, 4176000, '2019-05-12 13:36:24');
+(5, 'PENDAPATAN PRINT', 835200, 4176000, '2019-05-12 13:36:24'),
+(6, 'PENDAPATAN PRINT', 266200, 4442200, '2019-05-13 22:09:31'),
+(7, 'PENDAPATAN PRINT', 266200, 4708400, '2019-05-13 22:09:53'),
+(8, 'PENDAPATAN PRINT', 1318000, 6026400, '2019-05-13 22:40:59');
 
 -- --------------------------------------------------------
 
@@ -263,7 +269,9 @@ CREATE TABLE `transaksi` (
 
 INSERT INTO `transaksi` (`id_transaksi`, `crew`, `discount`, `admin`, `print`, `ledger`, `jumlah`, `jilid`, `tanggal`, `harga_awal`, `harga_diskon`) VALUES
 (1, 31, 6, 1, 5, 4, 2040, 3, '2019-05-12 11:56:56', 1044000, 835200),
-(2, 31, 6, 1, 6, 5, 2040, 3, '2019-05-12 13:36:25', 1044000, 835200);
+(2, 31, 6, 1, 6, 5, 2040, 3, '2019-05-12 13:36:25', 1044000, 835200),
+(3, 1, 6, 1, 8, 7, 432, 2, '2019-05-13 22:09:54', 332750, 266200),
+(4, 1, 6, 1, 9, 8, 2556, 1, '2019-05-13 22:40:59', 1647500, 1318000);
 
 --
 -- Indexes for dumped tables
@@ -336,7 +344,7 @@ ALTER TABLE `crew`
 -- AUTO_INCREMENT for table `detil_print`
 --
 ALTER TABLE `detil_print`
-  MODIFY `id_print` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_print` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `discount`
@@ -354,13 +362,13 @@ ALTER TABLE `harga`
 -- AUTO_INCREMENT for table `ledger`
 --
 ALTER TABLE `ledger`
-  MODIFY `id_ledger` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_ledger` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
