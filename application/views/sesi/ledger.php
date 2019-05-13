@@ -31,25 +31,25 @@
             <tr>
               <th>No.</th>
               <th>Tanggal</th>
-              <th>Nama Kru</th>
-              <th>Nama Admin</th>
-              <th>Harga (sebelum diskon)</th>
-              <th>Harga (sesudah diskon)</th>
+              <th>Keterangan</th>
+              <th>Debit</th>
+              <th>Saldo</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $query = $this->db->query("SELECT `id_transaksi`, c.`nama` AS `crew`, a.`nama` as `admin`, `print`, `tanggal`, `harga_awal`, `harga_diskon` FROM `transaksi` t ,`admin` a, `crew` c WHERE t.`crew` = c.`id_crew` AND a.`id_admin` = t.`admin` ");
+            $query = $this->db->query("SELECT * FROM `ledger`");
             $n = 1;
+            setlocale(LC_MONETARY, "de_DE");
+
             foreach ($query->result() as $row) {
               echo "
                     <tr>
                         <td>" . $n . "</td>
                         <td>" . $row->tanggal . "</td>
-                        <td>" . $row->crew . "</td>
-                        <td>" . $row->admin . "</td>
-                        <td>Rp. " . number_format($row->harga_awal) . "</td>
-                        <td>Rp. " . number_format($row->harga_diskon) . "</td>
+                        <td>" . $row->keterangan . "</td>
+                        <td>Rp. " . number_format($row->debit) . "</td>
+                        <td>Rp. " . number_format($row->saldo) . "</td>
                     </tr>";
               $n++;
             }
@@ -62,3 +62,4 @@
   </div>
 
 </div>
+<!-- /.container-fluid -->
