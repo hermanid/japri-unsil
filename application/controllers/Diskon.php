@@ -63,7 +63,7 @@ class Diskon extends CI_Controller
             $this->load->view('template/content', $data);
         } else {
             $this->diskon->editDiskon($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah ditambahkan</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah</div>');
             redirect('diskon');
         }
     }

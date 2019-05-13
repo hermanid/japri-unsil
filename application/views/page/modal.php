@@ -34,19 +34,17 @@
             <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="tempatlhr" name="tempatlhr" placeholder="Tempat Lahir">
+            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir">
           </div>
           <div class="form-group">
-            <input type="date" class="form-control" id="tanggallhr" name="tanggallhr" placeholder="Tanggal Lahir">
+            <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Tanggal Lahir">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
-          </div>
-          <div class="form-group">
-            <input type="hidden" class="form-control" id="piutang" name="piutang" value="">
-          </div>
-          <div class="form-group">
-            <input type="hidden" class="form-control" id="bagihasil" name="bagihasil" value="">
+            <!-- input hidden dan memiliki nilai default -->
+            <input type="hidden" class="form-control" id="bagihasil" name="bagihasil" value="0">
+            <input type="hidden" class="form-control" id="piutang" name="piutang" value="0">
+            <input type="hidden" class="form-control" id="keterangan" name="keterangan" value="-">
           </div>
         </div>
         <div class="modal-footer">

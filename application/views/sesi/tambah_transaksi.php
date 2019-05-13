@@ -18,32 +18,59 @@
         <div class="form-group">
           <input type="text" class="form-control form-control-user" id="crew" placeholder="Nama Crew" name="crew">
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="cetakhp" name="cetakhp" placeholder="Cetak Hitam Putih">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="cetaksw" name="cetaksw" placeholder="Cetak 50% Warna">
-        </div>
+        <!-- bullet -->
+        <!-- <div class="ml-1 mb-2">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="cetak" id="cetakhp" value="option1">Cetak Hitam Putih
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="cetak" id="cetaksw" value="option2">Cetak 50% Warna
+            </label>
+          </div>
+          <div class="form-check form-check-inline disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="cetak" id="cetakfw" value="option3">Cetak 100% Warna
+            </label>
+          </div>
+        </div> -->
 
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="cetakfw" name="cetakfw" placeholder="Cetak 100% Warna">
+          <input type="text" class="form-control form-control-user" id="cetakhp" placeholder="Cetak Hitam Putih" name="cetakhp">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control form-control-user" id="cetaksw" placeholder="Cetak 50% Warna" name="cetaksw">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control form-control-user" id="cetakfw" placeholder="Cetak 100% Warna" name="cetakfw">
         </div>
 
-        <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="jilid" name="jilid" placeholder="Jumlah Jilid">
+        <div class="row mt-n1">
+          <div class="col-7">
+            <div class="form-group">
+              <label class="col-form-label" for="jilid">Jumlah jilid</label>
+              <input type="number" class="form-control form-control-user" id="jilid" name="jilid">
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-group">
+              <label class="col-form-label" for="diskon">Potongan</label>
+              <div class="dropdown mb-4">
+                <select class="btn btn-primary dropdown-toggle" id="diskon" name="diskon">
+                  <?php foreach ($diskon as $row) : ?>
+                    <option class='dropdown-item' value="<?= $row['id_discount']; ?>"><?= $row['nama'] . ' - ' . $row['potongan'];  ?>%</option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="dropdown mb-4">
-          <select class="btn btn-primary dropdown-toggle" name="diskon">
-            <?php
-            $query = $this->db->query("SELECT * FROM `discount`");
-            foreach ($query->result() as $row) {
-              echo "<option class='dropdown-item' value='" . $row->id_discount . "'>" . $row->nama . " - " . $row->potongan . "%</option>";
-            }
-            ?>
-          </select>
-        </div>
+
         <button type="submit" class="btn btn-primary btn-user btn-block">Tambah</button>
       </form>
+      <a href="<?= base_url('transaksi'); ?>" class="card-link d-flex justify-content-center mt-2">Kembali</a>
     </div>
   </div>
 </div>

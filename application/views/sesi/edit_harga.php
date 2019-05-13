@@ -10,17 +10,19 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Harga</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data harga</h6>
                 </div>
                 <div class="card-body">
                     <form class="edit-form" action="<?= base_url('harga/edit/') . $harga_id['id_harga']; ?>" method="post">
                         <div class="form-group">
                             <input type="hidden" name="id" id="id" value="<?= $harga_id['id_harga'] ?>">
+                            <label class="col-form-label" for="nama">Nama Barang</label>
                             <input type="text" class="form-control form-control-user" id="nama" name="nama" value="<?= $harga_id['barang'] ?>">
                             <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" id="harga" name="harga" value="<?= $harga_id['harga'] ?>">
+                            <label class="col-form-label" for="harga">Harga</label>
+                            <input type="number" class="form-control form-control-user" id="harga" name="harga" value="<?= $harga_id['harga'] ?>">
                             <?= form_error('harga', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">

@@ -9,6 +9,9 @@ class Transaksi extends CI_Controller
         if ($this->session->userdata('status') != 'login') {
             redirect('login');
         }
+
+        // load model diskon
+        $this->load->model('diskon_model', 'diskon');
     }
 
     public function index()
@@ -23,6 +26,8 @@ class Transaksi extends CI_Controller
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "tambah_transaksi";
+        $data['diskon'] = $this->diskon->getAllDiskon();
+
         $this->load->view('template/content', $data);
     }
 

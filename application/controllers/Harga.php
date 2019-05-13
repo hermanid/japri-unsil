@@ -32,7 +32,7 @@ class Harga extends CI_Controller
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "harga";
-
+        $data['harga'] = $this->harga->getAllHarga();
 
         //form validation rules
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -63,7 +63,7 @@ class Harga extends CI_Controller
             $this->load->view('template/content', $data);
         } else {
             $this->harga->editHarga($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data harga berhasil diubah ditambahkan</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data harga berhasil diubah</div>');
             redirect('harga');
         }
     }
