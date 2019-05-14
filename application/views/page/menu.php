@@ -2,11 +2,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
+  <a class="sidebar-brand d-flex align-items-center justify-content-center my-2" href="<?= base_url(); ?>">
+    <div class="sidebar-brand-icon">
+      <?php $this->load->view('svg/logo_japri'); ?>
     </div>
-    <div class="sidebar-brand-text mx-3">JAPRI</div>
+    <div class="sidebar-brand-text mx-3"> </div>
   </a>
 
   <!-- Divider -->
@@ -75,15 +75,15 @@
   </div>
 
   <li class="nav-item">
-    <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+    <a class="nav-link logout" data-toggle="modal" data-target="#logoutModal">
       <i class="fas fa-fw fa-sign-out-alt"></i>
       <span>Logout</span>
     </a>
   </li>
 
   <!-- Sidebar Toggler (Sidebar) -->
-  <div class="text-center d-none d-md-inline">
+  <!-- <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>
-  </div>
+  </div> -->
 
 </ul>
