@@ -43,7 +43,7 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="<?= base_url('ledger'); ?>">
-      <i class="fas fa-fw fa-money-check-alt"></i>
+      <i class="fas fa-fw fa-book"></i>
       <span>Ledger</span>
     </a>
   </li>
