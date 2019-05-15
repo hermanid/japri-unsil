@@ -120,12 +120,16 @@ class Transaksi extends CI_Controller
             $row = $query->row();
             $piutang = $row->piutang;
             $this->db->query('UPDATE `crew` SET `bagihasil`= ' . (int)($bagihasil + $bonuscrew) . ', `piutang`= ' . (int)($piutang + $hdiskon) . ' WHERE id_crew =' . $idcrew);    
+            $this->db->query('INSERT INTO `ledger`(`id_ledger`, `keterangan`, `debit`,`kredit`, `saldo`, `tanggal`) VALUES (NULL,"PIUTANG PRINT '.strtoupper($crew).'"  ,0, ' . $hdiskon . ',   ' . (int)($saldo) . ',now())');
+        }else{
+            $this->db->query('INSERT INTO `ledger`(`id_ledger`, `keterangan`, `debit`, `saldo`, `tanggal`) VALUES (NULL,"PENDAPATAN PRINT", ' . $hdiskon . ',   ' . (int)($hdiskon + $saldo) . ',now())');
         }
         $this->db->query('UPDATE `crew` SET `bagihasil`= ' . (int)($bagihasil + $bonuscrew) . ' WHERE id_crew =' . $idcrew);    
 
         //query
         $this->db->query('INSERT INTO `detil_print`(`id_print`, `nama`, `harga`, `tanggal`) VALUES (NULL,  "' . $nama . '" , ' . $hdiskon . ',now())');
-        $this->db->query('INSERT INTO `ledger`(`id_ledger`, `keterangan`, `debit`, `saldo`, `tanggal`) VALUES (NULL,"PENDAPATAN PRINT" , ' . $hdiskon . ',   ' . (int)($hdiskon + $saldo) . ',now())');
+        
+        
         $this->db->query('UPDATE `admin` SET `bonus`= ' . (int)($bnsadmin + $bonusadmin) . ' WHERE id_admin =' . $idadmin);
 
         $data['bonuscrew'] =  $this->input->post('hawal') * 0.3;

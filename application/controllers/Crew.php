@@ -45,6 +45,26 @@ class Crew extends CI_Controller
             redirect('crew');
         }
     }
+    public function potongan($id)
+    {
+        $data['title'] = "Dashboard | JAPRI";
+        $data['page'] = "dashboard";
+        $data['sesi'] = "edit_potongan";
+        $data['diskon_id'] = $this->crew->getCrewById($id);
+
+        //form validation rules
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('potongan', 'potongan', 'required|numeric|trim');
+
+        //validasi form
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/content', $data);
+        } else {
+            $this->crew->bayarPiutang($id);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah</div>');
+            redirect('crew');
+        }
+    }
 
     public function edit($id)
     {

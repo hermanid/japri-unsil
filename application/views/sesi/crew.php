@@ -61,6 +61,7 @@
                 <td>Rp. <?= number_format($row['bagihasil']); ?></td>
                 <td><?= $row['keterangan']; ?></td>
                 <td>
+                  <a href="<?= base_url('crew/potongan/') . $row['id_crew']; ?>" class="badge badge-info">Bayar</a>
                   <a href="<?= base_url('crew/edit/') . $row['id_crew'] ?>" class="badge badge-primary">Edit</a>
                   <a href="<?= base_url('crew/hapus/') . $row['id_crew'] ?>" class="badge badge-danger btn-delete">Hapus</a>
                 </td>

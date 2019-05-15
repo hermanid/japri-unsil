@@ -33,6 +33,7 @@
               <th>Tanggal</th>
               <th>Keterangan</th>
               <th>Debit</th>
+              <th>Kredit</th>
               <th>Saldo</th>
             </tr>
           </thead>
@@ -49,6 +50,7 @@
                         <td>" . $row->tanggal . "</td>
                         <td>" . $row->keterangan . "</td>
                         <td>Rp. " . number_format($row->debit) . "</td>
+                        <td>Rp. " . number_format($row->kredit) . "</td>
                         <td>Rp. " . number_format($row->saldo) . "</td>
                     </tr>";
               $n++;
