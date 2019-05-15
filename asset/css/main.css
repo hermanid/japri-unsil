@@ -8,6 +8,12 @@
 	margin: auto;
 }
 
+.trans-sukses {
+	width: 670px;
+	margin: auto;
+	margin-top: 150px;
+}
+
 .modal {
 	display: none;
 	/* Hidden by default */

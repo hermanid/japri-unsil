@@ -12,6 +12,7 @@ class Transaksi extends CI_Controller
 
         // load model diskon
         $this->load->model('diskon_model', 'diskon');
+        $this->load->model('harga_model', 'harga');
     }
 
     public function index()
@@ -27,7 +28,7 @@ class Transaksi extends CI_Controller
         $data['page'] = "dashboard";
         $data['sesi'] = "tambah_transaksi";
         $data['diskon'] = $this->diskon->getAllDiskon();
-
+        $data['harga'] = $this->harga->getAllHarga();
         $this->load->view('template/content', $data);
     }
 
@@ -41,10 +42,11 @@ class Transaksi extends CI_Controller
 
     function add()
     {
-        $data['nama'] = $this->input->post('nama');
+        $data['nama'] = $this->input->post('nama'); 
         $data['cetakhp'] = $this->input->post('cetakhp');
         $data['cetaksw'] = $this->input->post('cetaksw');
         $data['cetakfw'] = $this->input->post('cetakfw');
+        $jns = $this->input->post('jenis');
         $data['crew'] = $this->input->post('crew');
         $disk = $this->input->post('diskon');
         $data['jilid'] = $this->input->post('jilid');
@@ -54,6 +56,9 @@ class Transaksi extends CI_Controller
         $data['ndiskon'] = $row[0]->nama;
         $data['vdiskon'] = $row[0]->potongan;
 
+        $query = $this->db->query('SELECT * FROM `harga` WHERE id_harga = 4');
+        $row = $query->result();
+        $data['jl'] = $row[0]->harga;
         $query = $this->db->query('SELECT * FROM `harga`');
         $row = $query->result();
         $data['hp'] = $row[0]->harga;
@@ -80,14 +85,13 @@ class Transaksi extends CI_Controller
     function all()
     {
         $nama = $this->input->post('namapb');
+        $data['nama'] = $nama;
         $admin = $this->input->post('admin');
         $iddiskon = $this->input->post('iddiskon');
         $crew = $this->input->post('crew');
+        $bayar = $this->input->post('bayar');
         $jkertas = $this->input->post('jkertas');
         $jilid = $this->input->post('jilid');
-        $query = $this->db->query('SELECT * FROM `crew` WHERE nama ="' . $this->input->post('crew') . '"');
-        $row = $query->result();
-        $idcrew = $row[0]->id_crew;
         $bonusadmin = $this->badmin($jkertas, $jilid);
         $bonuscrew = $this->input->post('hawal') * 0.3;
         $hawal = $this->input->post('hawal');
@@ -100,22 +104,33 @@ class Transaksi extends CI_Controller
         } else {
             $saldo = 0;
         }
-        $query = $this->db->query("SELECT `bagihasil` FROM `crew` WHERE id_crew =   " . $idcrew);
-        $row = $query->row();
-        $bagihasil = $row->bagihasil;
         $query = $this->db->query("SELECT `id_admin`,`bonus` FROM `admin` WHERE nama =  '" . $admin . "'");
         $row = $query->row();
         $bnsadmin = $row->bonus;
         $idadmin = $row->id_admin;
 
+        $query = $this->db->query('SELECT * FROM `crew` WHERE nama ="' . $this->input->post('crew') . '"');
+        $row = $query->result();
+        $idcrew = $row[0]->id_crew;            
+        $query = $this->db->query("SELECT `bagihasil` FROM `crew` WHERE id_crew =   " . $idcrew);
+        $row = $query->row();
+        $bagihasil = $row->bagihasil;          
+        if($bayar !== 'yes'){
+            $query = $this->db->query("SELECT `piutang` FROM `crew` WHERE id_crew =   " . $idcrew);
+            $row = $query->row();
+            $piutang = $row->piutang;
+            $this->db->query('UPDATE `crew` SET `bagihasil`= ' . (int)($bagihasil + $bonuscrew) . ', `piutang`= ' . (int)($piutang + $hdiskon) . ' WHERE id_crew =' . $idcrew);    
+        }
+        $this->db->query('UPDATE `crew` SET `bagihasil`= ' . (int)($bagihasil + $bonuscrew) . ' WHERE id_crew =' . $idcrew);    
 
         //query
         $this->db->query('INSERT INTO `detil_print`(`id_print`, `nama`, `harga`, `tanggal`) VALUES (NULL,  "' . $nama . '" , ' . $hdiskon . ',now())');
         $this->db->query('INSERT INTO `ledger`(`id_ledger`, `keterangan`, `debit`, `saldo`, `tanggal`) VALUES (NULL,"PENDAPATAN PRINT" , ' . $hdiskon . ',   ' . (int)($hdiskon + $saldo) . ',now())');
-        $this->db->query('UPDATE `crew` SET `bagihasil`= ' . (int)($bagihasil + $bonuscrew) . ' WHERE id_crew =' . $idcrew);
         $this->db->query('UPDATE `admin` SET `bonus`= ' . (int)($bnsadmin + $bonusadmin) . ' WHERE id_admin =' . $idadmin);
 
-
+        $data['bonuscrew'] =  $this->input->post('hawal') * 0.3;
+        $data['bonusadmin'] = $bonusadmin;
+        $data['crew'] = $crew;
         $query = $this->db->query('SELECT * FROM `ledger`');
         $row = $query->last_row();
         $idledger = $row->id_ledger;
@@ -125,7 +140,9 @@ class Transaksi extends CI_Controller
 
         $this->db->query('INSERT INTO `transaksi`(`id_transaksi`, `crew`, `discount`, `admin`, `print`, `ledger`, `jumlah`, `jilid`, `tanggal`, `harga_awal`, `harga_diskon`) 
         VALUES (NULL,' . $idcrew . ' ,' . $iddiskon . ' ,' . $idadmin . ' ,' . $idprint . ',' . $idledger . ',' . $jkertas . ',' . $jilid . ',now(),' . $hawal . ',' . $hdiskon . ')');
-
-        redirect(base_url());
-    }
+        
+        $data['title'] = "Dashboard | JAPRI";
+        $data['page'] = "dashboard";
+        $data['sesi'] = "trans_sukses";
+        $this->load->view('template/content', $data);    }
 }

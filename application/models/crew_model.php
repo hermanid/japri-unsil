@@ -3,7 +3,7 @@ class Crew_model extends CI_Model
 {
     public function getAllCrew()
     {
-        return $this->db->get('crew')->result_array();
+        return $this->db->order_by('nama', 'ASC')->get('crew')->result_array();
     }
 
     public function getCrewById($id)

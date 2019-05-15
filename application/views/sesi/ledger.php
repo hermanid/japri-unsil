@@ -2,8 +2,8 @@
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Daftar Transaksi</h1>
-  <p class="mb-4">Daftar catatan transaksi yang ada</p>
+  <h1 class="h3 mb-2 text-gray-800">Daftar Ledger</h1>
+  <p class="mb-4">Daftar catatan dalam ledger</p>
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -38,7 +38,7 @@
           </thead>
           <tbody>
             <?php
-            $query = $this->db->query("SELECT * FROM `ledger`");
+            $query = $this->db->query("SELECT * FROM `ledger` ORDER BY `tanggal` DESC");
             $n = 1;
             setlocale(LC_MONETARY, "de_DE");
 

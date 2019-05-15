@@ -39,7 +39,7 @@
           </thead>
           <tbody>
             <?php
-            $query = $this->db->query("SELECT `id_transaksi`, c.`nama` AS `crew`, a.`nama` as `admin`, `print`, `tanggal`, `harga_awal`, `harga_diskon` FROM `transaksi` t ,`admin` a, `crew` c WHERE t.`crew` = c.`id_crew` AND a.`id_admin` = t.`admin` ");
+            $query = $this->db->query("SELECT `id_transaksi`, c.`nama` AS `crew`, a.`nama` as `admin`, `print`, `tanggal`, `harga_awal`, `harga_diskon` FROM `transaksi` t ,`admin` a, `crew` c WHERE t.`crew` = c.`id_crew` AND a.`id_admin` = t.`admin` ORDER BY `tanggal` DESC");
             $n = 1;
             foreach ($query->result() as $row) {
               echo "

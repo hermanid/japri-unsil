@@ -14,12 +14,6 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahHargaModal">
-          <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-          </span>
-          <span class="text">Tambah Harga</span>
-        </a>
 
         <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <?= form_error('harga', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
@@ -43,7 +37,6 @@
                 <td>Rp. <?= $row['harga'] ?></td>
                 <td>
                   <a href="<?= base_url('harga/edit/') . $row['id_harga'] ?>" class="badge badge-primary">Edit</a>
-                  <a href="<?= base_url('harga/hapus/') . $row['id_harga'] ?>" class="badge badge-danger btn-delete">Hapus</a>
                 </td>
               </tr>
               <?php $n++; ?>

@@ -18,25 +18,6 @@
         <div class="form-group">
           <input type="text" class="form-control form-control-user" id="crew" placeholder="Nama Crew" name="crew">
         </div>
-        <!-- bullet -->
-        <!-- <div class="ml-1 mb-2">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="cetak" id="cetakhp" value="option1">Cetak Hitam Putih
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="cetak" id="cetaksw" value="option2">Cetak 50% Warna
-            </label>
-          </div>
-          <div class="form-check form-check-inline disabled">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="cetak" id="cetakfw" value="option3">Cetak 100% Warna
-            </label>
-          </div>
-        </div> -->
-
         <div class="form-group">
           <input type="text" class="form-control form-control-user" id="cetakhp" placeholder="Cetak Hitam Putih" name="cetakhp">
         </div>
@@ -46,7 +27,6 @@
         <div class="form-group">
           <input type="text" class="form-control form-control-user" id="cetakfw" placeholder="Cetak 100% Warna" name="cetakfw">
         </div>
-
         <div class="row mt-n1">
           <div class="col-7">
             <div class="form-group">

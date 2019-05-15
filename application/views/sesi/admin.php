@@ -30,7 +30,7 @@
                             <tr>
                                 <td>" . $n . "</td>
                                 <td>" . $row->nama . "</td>
-                                <th>".$row->bonus."</th>
+                                <th>Rp. ".number_format($row->bonus)."</th>
                             </tr>";
                       $n++;
                     }
