@@ -6,7 +6,7 @@ class Crew extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('status') != "login" && $this->session->userdata('status') == 'logout') {
+        if ($this->session->userdata('status') != 'login') {
             redirect('login');
         }
 
@@ -42,6 +42,26 @@ class Crew extends CI_Controller
         } else {
             $this->crew->addCrew();
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data crew berhasil ditambahkan</div>');
+            redirect('crew');
+        }
+    }
+    public function potongan($id)
+    {
+        $data['title'] = "Dashboard | JAPRI";
+        $data['page'] = "dashboard";
+        $data['sesi'] = "edit_potongan";
+        $data['diskon_id'] = $this->crew->getCrewById($id);
+
+        //form validation rules
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('potongan', 'potongan', 'required|numeric|trim');
+
+        //validasi form
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/content', $data);
+        } else {
+            $this->crew->bayarPiutang($id);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah</div>');
             redirect('crew');
         }
     }

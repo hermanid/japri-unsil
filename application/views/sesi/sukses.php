@@ -20,10 +20,17 @@
                           <td>Nama Pembeli</td>
                           <td><?php echo $nama?></td>
                         </tr>
-                        <tr>
-                            <td>Nama Crew</td>
-                            <td><?php echo $crew?></td>
-                        </tr>
+                        <?php
+                            if($crew !== ''){
+                                echo "
+                                <tr>
+                                <td>Nama Crew</td>
+                                <td>".$crew."</td>
+                            </tr>
+    
+                                ";
+                            }
+                        ?>
                   </tbody>
                 </table>
               </div>
@@ -96,11 +103,18 @@
                     <input type="hidden" name="namapb" value="<?php echo $nama?>">
                     <input type="hidden" name="crew" value="<?php echo $crew?>">
                     <input type="hidden" name="hawal" value="<?php echo $total?>">
-                    <input type="hidden" name="jkertas" value="<?php echo $cetakfw+$cetakhp+$cetaksw?>">
+                    <input type="hidden" name="jkertas" value="<?php echo (int)($cetakfw+$cetakhp+$cetaksw)?>">
                     <input type="hidden" name="hdiskon" value="<?php echo $total-$diskon?>">
                     <input type="hidden" name="jilid" value="<?php echo $jilid?>">
-                    
-                    <input type="submit" value="Beli" class="btn btn-primary btn-icon-split addItem">
+                    <div class="row" style="margin:0">
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                          <input type="checkbox" class="custom-control-input" name="bayar" value="yes" id="checkcrew">
+                          <label class="custom-control-label" for="checkcrew">Langsung Bayar</label>
+                      </div>
+                    </div>
+                      <input type="submit" value="Beli" class="btn btn-primary  addItem">
+                    </div>
                 </form>
               </div>
             </div>
