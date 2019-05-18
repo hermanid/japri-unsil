@@ -8,7 +8,7 @@
               <h6 class="m-0 font-weight-bold text-primary">Data transaksi</h6>
             </div>
             <div class="card-body">
-                
+
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <tbody>
@@ -27,7 +27,7 @@
                                 <td>Nama Crew</td>
                                 <td>".$crew."</td>
                             </tr>
-    
+
                                 ";
                             }
                         ?>
@@ -49,7 +49,7 @@
                       <?php
                       $total = (int)(($cetakfw*$fw)+($cetakhp*$hp)+($cetaksw*$sw)+($jl*$jilid));
                       $diskon = (int)(($vdiskon* $total)/100);
-                      
+
                       echo "
                       <tr>
                         <td>1</td>
@@ -72,7 +72,7 @@
                       <td>".$cetakfw."</td>
                       <td>Rp. ".number_format($fw*$cetakfw)."</td>
                       </tr>
-                      
+
                             <tr>
                             <td>3</td>
                             <td>Jilid</td>
@@ -106,14 +106,16 @@
                     <input type="hidden" name="jkertas" value="<?php echo (int)($cetakfw+$cetakhp+$cetaksw)?>">
                     <input type="hidden" name="hdiskon" value="<?php echo $total-$diskon?>">
                     <input type="hidden" name="jilid" value="<?php echo $jilid?>">
-                    <div class="row" style="margin:0">
+                    <div class="row d-flex justify-content-end" style="margin:0">
                     <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
+                      <div class="custom-control custom-checkbox small mt-2">
                           <input type="checkbox" class="custom-control-input" name="bayar" value="yes" id="checkcrew">
                           <label class="custom-control-label" for="checkcrew">Langsung Bayar</label>
                       </div>
                     </div>
-                      <input type="submit" value="Beli" class="btn btn-primary  addItem">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary addItem mt-n1">Tambah</button>
+                    </div>
                     </div>
                 </form>
               </div>
@@ -121,4 +123,3 @@
           </div>
 
         </div>
-        

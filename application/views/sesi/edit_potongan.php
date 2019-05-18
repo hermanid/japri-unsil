@@ -4,13 +4,13 @@
     <!-- Page Heading -->
     <div class="row">
         <div class="col-6">
-            <h1 class="h3 mb-2 text-gray-800">Edit Diskon</h1>
-            <p class="mb-2">Edit Diskon</p>
+            <h1 class="h3 mb-2 text-gray-800">Bayar Piutang</h1>
+            <p class="mb-2">Bayar piutang crew</p>
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data diskon</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data piutang</h6>
                 </div>
                 <div class="card-body">
                     <form class="edit-form" action="<?= base_url('crew/potongan/') . $diskon_id['id_crew']; ?>" method="post">

@@ -13,30 +13,35 @@
     <div class="card-body">
       <form class="transaksi-form" action="<?= base_url('transaksi/add'); ?>" method="post">
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama">
+          <label class="col-form-label" for="nama"><b>Nama Pembeli</b></label>
+          <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama pembeli">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="crew" placeholder="Nama Crew" name="crew">
+          <label class="col-form-label" for="crew"><b>Nama Crew</b></label>
+          <input type="text" class="form-control form-control-user" id="crew" name="crew" placeholder="Nama crew">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="cetakhp" placeholder="Cetak Hitam Putih" name="cetakhp">
+          <label class="col-form-label" for="cetakhp"><b>Jumlah Lembar Cetak Hitam Putih</b></label>
+          <input type="number" class="form-control form-control-user" id="cetakhp" placeholder="0" name="cetakhp">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="cetaksw" placeholder="Cetak 50% Warna" name="cetaksw">
+          <label class="col-form-label" for="cetaksw"><b>Jumlah Lembar Cetak 50% Warna</b></label>
+          <input type="number" class="form-control form-control-user" id="cetaksw" placeholder="0" name="cetaksw">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="cetakfw" placeholder="Cetak 100% Warna" name="cetakfw">
+          <label class="col-form-label" for="cetakfw"><b>Jumlah Lembar Cetak 100% Warna</b></label>
+          <input type="number" class="form-control form-control-user" id="cetakfw" placeholder="0" name="cetakfw">
         </div>
-        <div class="row mt-n1">
-          <div class="col-7">
+        <div class="row d-flex mt-n1">
+          <div class="col-5">
             <div class="form-group">
-              <label class="col-form-label" for="jilid">Jumlah jilid</label>
-              <input type="number" class="form-control form-control-user" id="jilid" name="jilid">
+              <label class="col-form-label" for="jilid"><b>Jumlah jilid</b></label>
+              <input type="number" class="form-control form-control-user" id="jilid" placeholder="0" name="jilid">
             </div>
           </div>
           <div class="col-4">
             <div class="form-group">
-              <label class="col-form-label" for="diskon">Potongan</label>
+              <label class="col-form-label" for="diskon"><b>Potongan</b></label>
               <div class="dropdown mb-4">
                 <select class="btn btn-primary dropdown-toggle" id="diskon" name="diskon">
                   <?php foreach ($diskon as $row) : ?>
