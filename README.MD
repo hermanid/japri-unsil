@@ -1,6 +1,4 @@
-# KEKURANGAN
+# Japri
 
-1. Tambah transaksi ledger untuk pengeluaran
-2. Level user
-3. Pengambilan bagi Hasil dan dimasukan ke ledger
-4. label di form
+## Deskripsi
+Aplikasi ini dibuat untuk memenuhi kebutuhan untuk transaksi di perusahaan japri.
