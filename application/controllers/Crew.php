@@ -9,7 +9,6 @@ class Crew extends CI_Controller
         if ($this->session->userdata('status') != 'login') {
             redirect('login');
         }
-
         $this->load->model('crew_model', 'crew');
     }
 
@@ -19,7 +18,6 @@ class Crew extends CI_Controller
         $data['page'] = "dashboard";
         $data['sesi'] = "crew";
         $data['crew'] = $this->crew->getAllCrew();
-
         $this->load->view('template/content', $data);
     }
 

@@ -11,6 +11,11 @@ class Crew_model extends CI_Model
         return $this->db->get_where('crew', ['id_crew' => $id])->row_array();
     }
 
+    public function getCrewByNama($nama)
+    {
+        return $this->db->get_where('crew', ['nama' => $nama])->row_array();
+    }
+
     public function addCrew()
     {
         $data = [
@@ -26,9 +31,25 @@ class Crew_model extends CI_Model
         $this->db->insert('crew', $data);
     }
 
+    public function addPiutang($id, $piutang){
+      $data = [
+          'piutang' => $piutang
+      ];
+      $this->db->where('id_crew', $id);
+      $this->db->update('crew', $data);
+    }
+
+    public function addBagiHasil($id, $bagihasil){
+      $data = [
+          'bagihasil' => $bagihasil
+      ];
+      $this->db->where('id_crew', $id);
+      $this->db->update('crew', $data);
+    }
+
     public function bayarPiutang($id)
     {
-        
+
         $png = $this->db->query("SELECT piutang AS utang FROM `crew` WHERE id_crew = ".$id);
         $row = $png->row();
         $piutangawal = $row->utang ;
@@ -45,13 +66,13 @@ class Crew_model extends CI_Model
         $png = $this->db->query("SELECT * FROM `ledger`");
         $row = $png->last_row();
         $saldo = $row->saldo;
-        
+
         $data = array(
             'keterangan' => 'PENDAPATAN PRINT '.strtoupper($this->input->post('nama')),
             'debit' => $piutangbayar,
             'saldo' => $saldo+$piutangbayar,
         );
-    
+
         $this->db->set('tanggal', 'NOW()', FALSE);
         $this->db->insert('ledger', $data);
     }

@@ -79,7 +79,7 @@
           </div>
           <div class="form-group">
             <label class="col-form-label" for="potongan"><b>Potongan (%)</b></label>
-            <input type="text" class="form-control" id="potongan" name="potongan" placeholder="Nama Diskon">
+            <input type="number" class="form-control form-control-user" id="potongan" placeholder="0" name="potongan">
           </div>
         </div>
         <div class="modal-footer">

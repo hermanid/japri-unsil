@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-form-label" for="potongan">Piutang</label>
-                            <input type="text" class="form-control form-control-user" id="potongan" name="potongan" value="">
+                            <input type="number" class="form-control form-control-user" id="potongan" placeholder="0" name="potongan">
                             <?= form_error('potongan', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
