@@ -19,17 +19,40 @@ class Admin_model extends CI_Model
     {
         $data = [
             'nama' => $this->input->post('nama'),
-            'tempat_lahir' => $this->input->post('tempat_lahir'),
-            'tgl_lahir' => $this->input->post('tgl_lahir'),
-            'alamat' => $this->input->post('alamat'),
-            'piutang' => $this->input->post('piutang'),
-            'bagihasil' => $this->input->post('bagihasil'),
-            'keterangan' => $this->input->post('keterangan')
+            'username' => $this->input->post('username'),
+            'pass' => md5($this->input->post('password')),
         ];
 
         $this->db->insert('admin', $data);
     }
+    public function bayarBonus($id)
+    {
 
+        $crew = $this->getAdminById($id);
+        $bagihasil = $crew['bonus'] ;
+        $bayar = $this->input->post('potongan');
+
+        $data = [
+            'bonus' => (int)($bagihasil - $bayar)
+        ];
+
+        $this->db->where('id_admin', $id);
+        $this->db->update('admin', $data);
+
+        $png = $this->db->query("SELECT * FROM `ledger`");
+        $row = $png->last_row();
+        $saldo = $row->saldo;
+
+        $data = array(
+            'keterangan' => 'PENGAMBILAN BONUS ADMIN '.strtoupper($this->input->post('nama')),
+            'debit' => 0,
+            'kredit' => $bayar,
+            'saldo' => $saldo-$bayar,
+        );
+
+        $this->db->set('tanggal', 'NOW()', FALSE);
+        $this->db->insert('ledger', $data);
+    }
     public function bonusAdmin($id, $bonus)
     {
         $data = [

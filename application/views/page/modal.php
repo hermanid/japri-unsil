@@ -118,3 +118,36 @@
     </div>
   </div>
 </div>
+
+<!-- Tambah Admin -->
+<div class="modal fade" id="tambahAdminModal" tabindex="-1" role="dialog" aria-labelledby="tambahCrewModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahCrewModalLabel">Tambah Admin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?= base_url('admin/tambah'); ?>" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-form-label" for="username"><b>Username</b></label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="username">
+          </div>
+          <div class="form-group">
+              <label class="col-form-label" for="nama"><b>Nama</b></label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+          </div>
+          <div class="form-group">
+              <label class="col-form-label" for="password"><b>Password</b></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
