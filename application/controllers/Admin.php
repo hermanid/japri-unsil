@@ -11,10 +11,12 @@ class Admin extends CI_Controller
         if ($this->session->userdata('status') != 'login') {
             redirect('login');
         }
+        $this->load->model('admin_model', 'admin');
     }
 
     public function index()
     {
+        $data['data'] = $this->admin->getAllAdmin();
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "admin";

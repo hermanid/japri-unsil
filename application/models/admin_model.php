@@ -33,7 +33,6 @@ class Admin_model extends CI_Model
     public function bonusAdmin($id, $bonus)
     {
         $data = [
-            'nama' => $id,
             'bonus' => $bonus
         ];
 

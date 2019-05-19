@@ -18,6 +18,7 @@ class Ledger_model extends CI_Model
         return $this->db->get('ledger')->last_row('array');
     }
 
+
     public function addLedger($keterangan, $debit, $kredit, $saldo)
     {
         $data = [

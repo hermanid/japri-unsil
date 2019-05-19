@@ -12,6 +12,12 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
+        <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahLedgerModal">
+          <span class="icon text-white-50">
+            <i class="fas fa-plus"></i>
+          </span>
+          <span class="text">Tambah Pengeluaran</span>
+        </a>
 
         <div class="row">
           <div class="col-5">
@@ -25,6 +31,10 @@
             <!-- akhir search button -->
           </div>
         </div>
+
+                <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('harga', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= $this->session->flashdata('message'); ?>
 
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>

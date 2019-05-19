@@ -47,6 +47,30 @@ class Transaksi extends CI_Controller
         $this->load->view('template/content', $data);
     }
 
+    public function tambahledger()
+    {
+        $data['title'] = "Dashboard | JAPRI";
+        $data['page'] = "dashboard";
+        $data['sesi'] = "ledger";
+
+        //form validation rules
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|numeric|trim');
+
+
+        //validasi form
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/content', $data);
+        } else {
+            $keterangan = $this->input->post('nama');
+            $kredit     = $this->input->post('harga');
+            $saldo      = $this->ledger->getLastLedger()['saldo'];
+            $this->ledger->addLedger($keterangan, 0 , $kredit , (int)$saldo - $kredit);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil ditambahkan</div>');
+            redirect('ledger');
+        }
+    }
+
     function add()
     {
         // data inputan

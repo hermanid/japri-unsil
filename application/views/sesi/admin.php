@@ -23,14 +23,13 @@
 
                   <tbody>
                     <?php
-                    $query = $this->db->query("SELECT * FROM `admin`");
                     $n = 1;
-                    foreach ($query->result() as $row) {
+                    foreach ($data as $row) {
                       echo "
                             <tr>
                                 <td>" . $n . "</td>
-                                <td>" . $row->nama . "</td>
-                                <th>Rp. ".number_format($row->bonus)."</th>
+                                <td>" . $row['nama'] . "</td>
+                                <th>Rp. ".number_format($row['bonus'])."</th>
                             </tr>";
                       $n++;
                     }

@@ -66,7 +66,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahDiskonModalLabel">Tambah Harga</h5>
+        <h5 class="modal-title" id="tambahDiskonModalLabel">Tambah Diskon</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -80,6 +80,35 @@
           <div class="form-group">
             <label class="col-form-label" for="potongan"><b>Potongan (%)</b></label>
             <input type="number" class="form-control form-control-user" id="potongan" placeholder="0" name="potongan">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ledger -->
+<div class="modal fade" id="tambahLedgerModal" tabindex="-1" role="dialog" aria-labelledby="tambahLedgerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahDiskonModalLabel">Tambah Pengeluaran</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?= base_url('transaksi/tambahledger'); ?>" method="post">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-form-label" for="nama"><b>Nama Pengeluaran</b></label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pengeluaran">
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="harga"><b>Jumlah Uang</b></label>
+            <input type="number" class="form-control form-control-user" id="harga" placeholder="0" name="harga">
           </div>
         </div>
         <div class="modal-footer">
