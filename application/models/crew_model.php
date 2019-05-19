@@ -77,6 +77,35 @@ class Crew_model extends CI_Model
         $this->db->insert('ledger', $data);
     }
 
+    public function bayarBonus($id)
+    {
+
+        $crew = $this->getCrewById($id);
+        $bagihasil = $crew['bagihasil'] ;
+        $bayar = $this->input->post('potongan');
+
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'bagihasil' => (int)($bagihasil - $bayar)
+        ];
+
+        $this->db->where('id_crew', $id);
+        $this->db->update('crew', $data);
+
+        $png = $this->db->query("SELECT * FROM `ledger`");
+        $row = $png->last_row();
+        $saldo = $row->saldo;
+
+        $data = array(
+            'keterangan' => 'PENGAMBILAN BAGI HASIL'.strtoupper($this->input->post('nama')),
+            'debit' => 0,
+            'kredit' => $bayar,
+            'saldo' => $saldo-$bayar,
+        );
+
+        $this->db->set('tanggal', 'NOW()', FALSE);
+        $this->db->insert('ledger', $data);
+    }
     public function editCrew($id)
     {
         $data = [
