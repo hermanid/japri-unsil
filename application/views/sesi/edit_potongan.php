@@ -23,7 +23,7 @@
                             <?= form_error('potongan', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-user btn-block">Bayar Piutang</button>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Ambil Bonus</button>
                         </div>
                     </form>
                     <a href="<?= base_url('crew'); ?>" class="card-link d-flex justify-content-center">Kembali</a>
