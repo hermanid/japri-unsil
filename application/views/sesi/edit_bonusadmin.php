@@ -8,15 +8,13 @@
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Bagi Hasil</h6>
-                </div>
+
                 <div class="card-body">
-                    <form class="edit-form" action="<?= base_url('admin/bonus/') . $diskon_id['id_admin']; ?>" method="post">
+                    <form class="edit-form" action="<?= base_url('admin/bonus/') . $admin_id['id_admin']; ?>" method="post">
                         <div class="form-group">
-                            <input type="hidden" name="id" id="id" value="<?= $diskon_id['id_admin'] ?>">
+                            <input type="hidden" name="id" id="id" value="<?= $admin_id['id_admin'] ?>">
                             <label class="col-form-label" for="nama">Nama</label>
-                            <input type="text" class="form-control form-control-user" id="nama" name="nama" value="<?= $diskon_id['nama'] ?>">
+                            <input type="text" class="form-control form-control-user" id="nama" name="nama" value="<?= $admin_id['nama'] ?>">
                             <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="form-group">

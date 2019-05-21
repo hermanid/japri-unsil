@@ -39,7 +39,7 @@ class Admin extends CI_Controller
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "edit_bonusadmin";
-        $data['diskon_id'] = $this->admin->getAdminById($id);
+        $data['admin_id'] = $this->admin->getAdminById($id);
 
         //form validation rules
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -50,7 +50,7 @@ class Admin extends CI_Controller
             $this->load->view('template/content', $data);
         } else {
             $this->admin->bayarBonus($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Bonus Admin berhasil diambil</div>');
             redirect('admin');
         }
     }
@@ -63,8 +63,9 @@ class Admin extends CI_Controller
         $data['sesi'] = "admin";
         $this->load->view('template/content', $data);
     }
-    public function e404(){
-          $data['title'] = "Not Found 404";
-          $this->load->view('errors/html/error_404', $data);
+    public function e404()
+    {
+        $data['title'] = "Not Found 404";
+        $this->load->view('errors/html/error_404', $data);
     }
 }

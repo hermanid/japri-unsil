@@ -36,7 +36,6 @@ class Transaksi extends CI_Controller
         $data['harga']  = $this->harga->getAllHarga();
 
         $this->load->view('template/content', $data);
-
     }
 
     public function ledger()
@@ -65,8 +64,8 @@ class Transaksi extends CI_Controller
             $keterangan = $this->input->post('nama');
             $kredit     = $this->input->post('harga');
             $saldo      = $this->ledger->getLastLedger()['saldo'];
-            $this->ledger->addLedger($keterangan, 0 , $kredit , (int)$saldo - $kredit);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil ditambahkan</div>');
+            $this->ledger->addLedger($keterangan, 0, $kredit, (int)$saldo - $kredit);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data ledger berhasil ditambahkan</div>');
             redirect('ledger');
         }
     }
@@ -143,14 +142,14 @@ class Transaksi extends CI_Controller
         $bagihasil  = $qCrew['bagihasil'];
         $piutang    = $qCrew['piutang'];
 
-        if($bayar !== 'yes'){
+        if ($bayar !== 'yes') {
             $this->crew->addPiutang($idcrew, $piutang);
-            $this->ledger->addLedger("PIUTANG PRINT ".strtoupper($crew), 0 , $hdiskon, (int)($saldo));
-        }else{
-            $this->ledger->addLedger("PENDAPATAN PRINT", $hdiskon, 0 , (int)($saldo));
+            $this->ledger->addLedger("PIUTANG PRINT " . strtoupper($crew), 0, $hdiskon, (int)($saldo));
+        } else {
+            $this->ledger->addLedger("PENDAPATAN PRINT", $hdiskon, 0, (int)($saldo));
         }
 
-        $this->crew->addBagiHasil($idcrew, (int)$bagihasil+$bonuscrew);
+        $this->crew->addBagiHasil($idcrew, (int)$bagihasil + $bonuscrew);
         $this->print->addPrint($nama, $hdiskon);
         $this->admin->bonusadmin($idadmin, (int)$bnsadmin + $bonusadmin);
 
@@ -164,20 +163,21 @@ class Transaksi extends CI_Controller
         $idprint      = $lPrint['id_print'];
 
         $trans = [
-          'crew'          => $idcrew,
-          'discount'      => $iddiskon,
-          'admin'         => $idadmin,
-          'print'         => $idprint,
-          'ledger'        => $idledger,
-          'jumlah'        => $jkertas,
-          'jilid'         => $jilid,
-          'harga_awal'    => $hawal,
-          'harga_diskon'  => $hdiskon
+            'crew'          => $idcrew,
+            'discount'      => $iddiskon,
+            'admin'         => $idadmin,
+            'print'         => $idprint,
+            'ledger'        => $idledger,
+            'jumlah'        => $jkertas,
+            'jilid'         => $jilid,
+            'harga_awal'    => $hawal,
+            'harga_diskon'  => $hdiskon
         ];
         $this->transaksi->addTransaksi($trans);
 
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "trans_sukses";
-        $this->load->view('template/content', $data);    }
+        $this->load->view('template/content', $data);
+    }
 }

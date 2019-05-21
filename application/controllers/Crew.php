@@ -48,7 +48,7 @@ class Crew extends CI_Controller
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "edit_potongan";
-        $data['diskon_id'] = $this->crew->getCrewById($id);
+        $data['crew_id'] = $this->crew->getCrewById($id);
 
         //form validation rules
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -59,7 +59,7 @@ class Crew extends CI_Controller
             $this->load->view('template/content', $data);
         } else {
             $this->crew->bayarPiutang($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Bayar piutang berhasil</div>');
             redirect('crew');
         }
     }
@@ -69,7 +69,7 @@ class Crew extends CI_Controller
         $data['title'] = "Dashboard | JAPRI";
         $data['page'] = "dashboard";
         $data['sesi'] = "edit_bagihasil";
-        $data['diskon_id'] = $this->crew->getCrewById($id);
+        $data['crew_id'] = $this->crew->getCrewById($id);
 
         //form validation rules
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -80,7 +80,7 @@ class Crew extends CI_Controller
             $this->load->view('template/content', $data);
         } else {
             $this->crew->bayarBonus($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data diskon berhasil diubah</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Bagi hasil dengan crew berhasil</div>');
             redirect('crew');
         }
     }

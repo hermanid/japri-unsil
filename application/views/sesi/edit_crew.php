@@ -7,9 +7,6 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data crew</h6>
-        </div>
         <div class="card-body">
             <form class="edit-form" action="<?= base_url('crew/edit/') . $crew_id['id_crew']; ?>" method="post">
                 <div class="row">
@@ -39,22 +36,24 @@
                             <input type="textarea" class="form-control form-control-user" id="alamat" name="alamat" value="<?= $crew_id['alamat'] ?>">
                             <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="piutang">Piutang</label>
-                                    <input type="number" class="form-control form-control-user" id="piutang" name="piutang" value="<?= $crew_id['piutang'] ?>">
-                                    <?= form_error('piutang', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <fieldset disabled="disabled">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="disabledTextInput">Piutang</label>
+                                        <input type="number" class="form-control form-control-user" id="disabledTextInput" name="piutang" value="<?= $crew_id['piutang'] ?>">
+                                        <?= form_error('piutang', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="disabledTextInput">Bagi Hasil</label>
+                                        <input type="number" class="form-control form-control-user" id="disabledTextInput" name="bagihasil" value="<?= $crew_id['bagihasil'] ?>">
+                                        <?= form_error('bagihasil', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="bagihasil">Bagi Hasil</label>
-                                    <input type="number" class="form-control form-control-user" id="bagihasil" name="bagihasil" value="<?= $crew_id['bagihasil'] ?>">
-                                    <?= form_error('bagihasil', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
-                            </div>
-                        </div>
+                        </fieldset>
                         <div class="form-group">
                             <label class="col-form-label" for="keterangan">Keterangan</label>
                             <input type="textarea" class="form-control form-control-user" id="keterangan" name="keterangan" value="<?= $crew_id['keterangan'] ?>">

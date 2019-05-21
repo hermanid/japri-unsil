@@ -9,9 +9,6 @@
 
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data harga</h6>
-                </div>
                 <div class="card-body">
                     <form class="edit-form" action="<?= base_url('harga/edit/') . $harga_id['id_harga']; ?>" method="post">
                         <div class="form-group">
