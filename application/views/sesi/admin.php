@@ -7,24 +7,21 @@
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
-            </div>
             <div class="card-body">
               <div class="table-responsive">
 
-                  <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahAdminModal">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus"></i>
-                    </span>
-                    <span class="text">Tambah Admin</span>
-                  </a>
+                <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahAdminModal">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                  <span class="text">Tambah Admin</span>
+                </a>
 
-                  <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                  <?= form_error('username', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                  <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                  <?= form_error('password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-                  <?= $this->session->flashdata('message'); ?>
+                <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('username', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('nama', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= form_error('password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?= $this->session->flashdata('message'); ?>
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -44,9 +41,9 @@
                             <tr>
                                 <td>" . $n . "</td>
                                 <td>" . $row['nama'] . "</td>
-                                <th>Rp. ".number_format($row['bonus'])."</th>
+                                <th>Rp. " . number_format($row['bonus']) . "</th>
                                 <th>
-                                  <a href='".base_url('admin/bonus/') . $row['id_admin']. "' class='badge badge-warning'>Ambil Bonus</a>
+                                  <a href='" . base_url('admin/bonus/') . $row['id_admin'] . "' class='badge badge-warning'>Ambil Bonus</a>
                                 </th>
                             </tr>";
                       $n++;

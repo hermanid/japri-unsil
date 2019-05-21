@@ -7,24 +7,8 @@
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Data Transaksi</h6>
-    </div>
     <div class="card-body">
       <div class="table-responsive">
-
-        <div class="row">
-          <div class="col-5">
-            <!-- Search button -->
-            <div class="input-group mb-3">
-              <input id="search-input" type="text" class="form-control" placeholder="Cari transaksi .." aria-label="Cari transaksi .." aria-describedby="search-button">
-              <div class="input-group-append">
-                <button class="btn btn-primary" id="search-button">Cari</button>
-              </div>
-            </div>
-            <!-- akhir search button -->
-          </div>
-        </div>
 
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -62,3 +46,25 @@
   </div>
 
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('table').dataTable({
+      "oLanguage": {
+        "sSearch": "Cari Transaksi:",
+        "sEmptyTable": "Data tidak tersedia",
+        "sInfo": "Menampilkan _START_ ke _END_ dari _TOTAL_ entri",
+        "sInfoEmpty": "Menampilkan 0 ke 0 dari 0 entri",
+        "sInfoFiltered": "(filter dari _MAX_ entri total)",
+        "sInfoPostFix": "",
+        "sLengthMenu": "Tampilkan _MENU_ Entri",
+        "sLoadingRecords": "Loading...",
+        "sProcessing": "Memproses...",
+        "sZeroRecords": "Tidak ada data yang cocok",
+        "sDecimal": "",
+        "sThousands": ","
+      },
+      "aLengthMenu": [5, 10, 50]
+    });
+  });
+</script>
